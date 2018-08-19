@@ -18,7 +18,12 @@ class MLP(nn.Module):
         out_dim: the size of the output.
         activation: the activation function.
     """
-    def __init__(self, num_layers, in_dim, hidden_dim, out_dim, activation='relu'):
+    def __init__(self,
+                 num_layers,
+                 in_dim,
+                 hidden_dim,
+                 out_dim,
+                 activation='relu'):
         super().__init__()
         self.num_layers = num_layers
         self.in_dim = in_dim
