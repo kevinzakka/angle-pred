@@ -30,6 +30,9 @@ def generate_data(size, dims=2, test_size=0.1, seed=0, show=False):
     # create angle values. arctan2 returns them in the range [-π, +π]
     y = np.arctan2(sin, cos).reshape(-1, 1)
 
+    # add some noise to make it a bit more challenging (and realistic)
+    y += np.random.normal(0, 0.1, y.shape)
+
     # cast to float and return
     X = X.astype(np.float32)
     y = y.astype(np.float32)

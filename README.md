@@ -4,6 +4,11 @@
 
 In this repository, I'm going to explore and compare the performance of various techniques for continuous orientation estimation tasks, where the goal is to take an input and spit out an angular value between 0 and 360 degrees.
 
+* predict the angle directly
+* decompose the prediction into `cos` and `sin`
+* above but tweak the loss function such that it disregards radial differences
+* discretize angles and transform regression into classification
+
 ## Data Generation
 
 The 2D training points `X` are sampled from a standard normal distribution. The `sin` and `cos` values are created through a random linear combination of the columns of `X` which are then fed through the `arctan2` method to create the ground truth angle values in the range `[-π, +π]`.
@@ -28,3 +33,7 @@ We use a simple MLP with 2 hidden layers of size 4. The network is trained using
 <p align="center">
  <img src="./imgs/reconstruction.png" alt="Drawing", width=80%>
 </p>
+
+## Resources
+
+- [arXiv](https://arxiv.org/abs/1702.01499)
